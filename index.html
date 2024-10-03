@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Sentence Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        input[type="text"] {
+            width: 200px;
+            padding: 10px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+        #output {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Random Sentence Generator</h1>
+    <input type="text" id="inputWord" placeholder="Enter a word">
+    <button onclick="generateSentence()">Generate Sentence</button>
+    <div id="output"></div>
+
+    <script>
+        function generateSentence() {
+            const word = document.getElementById("inputWord").value;
+            const sentences = [
+                `The ${word} jumped over the fence.`,
+                `She found a ${word} in the garden.`,
+                `A ${word} can often bring joy to people.`,
+                `In the end, the ${word} was the key to the mystery.`,
+                `Everyone loves a good ${word} story.`,
+                `The ${word} was shining brightly in the sky.`
+            ];
+
+            const randomIndex = Math.floor(Math.random() * sentences.length);
+            const randomSentence = sentences[randomIndex].replace("{}", word);
+            document.getElementById("output").innerText = randomSentence;
+        }
+    </script>
+</body>
+</html>
